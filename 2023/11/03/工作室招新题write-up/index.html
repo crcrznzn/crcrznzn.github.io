@@ -1,0 +1,666 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="#张峻铭2022090903016 Crcrcr##Web###1.ClickMe  根据题目应该是点击某个按钮会进行相关反应，而web中唯一的按钮无法点击。使用前缀添加view-source:,查看了网页源代码，发现代码style&#x3D;”pointer-events:auto，即按钮点击功能被禁用。将网页保存后以记事本形式打开，修改pointr_events的参数为auto，再次打开后点击">
+<meta property="og:type" content="article">
+<meta property="og:title" content="工作室招新题write up">
+<meta property="og:url" content="http://example.com/2023/11/03/%E5%B7%A5%E4%BD%9C%E5%AE%A4%E6%8B%9B%E6%96%B0%E9%A2%98write-up/index.html">
+<meta property="og:site_name" content="crcr">
+<meta property="og:description" content="#张峻铭2022090903016 Crcrcr##Web###1.ClickMe  根据题目应该是点击某个按钮会进行相关反应，而web中唯一的按钮无法点击。使用前缀添加view-source:,查看了网页源代码，发现代码style&#x3D;”pointer-events:auto，即按钮点击功能被禁用。将网页保存后以记事本形式打开，修改pointr_events的参数为auto，再次打开后点击">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-03T12:24:36.000Z">
+<meta property="article:modified_time" content="2023-11-03T12:26:30.842Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>工作室招新题write up - crcr</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="工作室招新题write up"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-11-03 20:24" pubdate>
+          November 3, 2023 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          9.3k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          78 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">工作室招新题write up</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>#张峻铭2022090903016 Crcrcr<br>##Web<br>###1.ClickMe<br>  根据题目应该是点击某个按钮会进行相关反应，而web中唯一的按钮无法点击。使用前缀添加view-source:,查看了网页源代码，发现代码style&#x3D;”pointer-events:auto，即按钮点击功能被禁用。将网页保存后以记事本形式打开，修改pointr_events的参数为auto，再次打开后点击后即可得到flag为Aegis{We1com3_to_2O23_Ae9is_Recruit!}<br>###2.Get&amp;Post<br>  本题为白盒类型，web前端直接给出了后端文件的源代码。通过观察得知，flag会通过cookie发送给用户，而发送cookie的条件为用户分别通过get和post方法传入a和b两个参数，且参数的值相同。<br>###3.Spider<br>  根据题目字面意思此题应为爬虫类题目，点开后提示向网页添加后缀后进入新的网页获取flag，连续操作几次后仍然在跳转的途中。联想到遇到过需要不断点击的整蛊弹窗，考虑经过大量网页跳转后达到目标网页，编写python爬虫代码如下：<br>import re<br>import requests</p>
+<p>url1 &#x3D; “<a target="_blank" rel="noopener" href="http://139.9.212.160:19001/">http://139.9.212.160:19001/</a>“<br>while True:<br>    url &#x3D; “<a target="_blank" rel="noopener" href="http://139.9.212.160:19001/">http://139.9.212.160:19001/</a>“<br>    # 发送请求并获取网页内容<br>    response &#x3D; requests.get(url1)<br>    html_content &#x3D; response.text</p>
+<pre><code class="hljs"># 使用正则表达式匹配以.html结束的字符串
+pattern = r&#39;\b\w+\.html\b&#39;
+matches = re.findall(pattern, html_content)
+list_as_string = &#39;&#39;.join(str(x) for x in matches)
+url1 = url + list_as_string
+print(url1)
+if(url1==url):
+    break
+</code></pre>
+<p>该代码不断爬取网页上符合的字符串并不断粘贴在初始网页后面进行访问，以此达到暴力破解的目的，最后程序运行完后进入倒数第二个网址找到flag为Aegis{foll0w_7he_spider&amp;get_f1ag}<br>###4.Upload<br>页面点击后发现是一个文件提交窗口且仅支持图片类型格式。尝试传入其他格式文件后显示上传失败。上传成功后会给出文件的保存路径。考虑上传一句话木马并修改文件的后缀名为jpg格式以便上传成功。打开burpsuite抓包，将文件名后缀改为.php后放包。将文件保存地址复制后，打开中国蚁剑使用木马中设置的密码进行连接，成功后在&#x2F;flag目录下找到flag为Aegis{Did’u’<em>see^some_n!ce_pictures?}<br>###5.Play<br>打开页面或发现唯一可点击为一个超链接，点开后发现又被骗了（。考虑使用其他方法，在challenge页面提示为git泄露。使用GitHack进行git抓取，成功生成包含在dist文件夹下的网页文档。在cmd中打开此目录，输入git log -p查看git的提交记录，成功找到在Author: root <a href="mailto:&#x72;&#x6f;&#111;&#x74;&#64;&#76;&#x41;&#x50;&#84;&#79;&#x50;&#45;&#66;&#x39;&#x41;&#56;&#x31;&#49;&#x44;&#x36;&#46;&#x6c;&#x6f;&#x63;&#97;&#x6c;&#100;&#x6f;&#x6d;&#97;&#x69;&#110;">&#x72;&#x6f;&#111;&#x74;&#64;&#76;&#x41;&#x50;&#84;&#79;&#x50;&#45;&#66;&#x39;&#x41;&#56;&#x31;&#49;&#x44;&#x36;&#46;&#x6c;&#x6f;&#x63;&#97;&#x6c;&#100;&#x6f;&#x6d;&#97;&#x69;&#110;</a><br>Date:   Thu Jul 20 14:33:02 2023 +0800的提交目录下flag &#x3D; “Aegis{pa1y_f0r</em>.git!}<br>##Misc<br>###1.签到题<br>熟悉提交流程的题目，在readme中即可找到flag为 Aegis{Hello_world!}<br>###2.GFW<br>根据题目提示，下载telegram后进入指定用户页面，在输入框输入&#x2F;flag后即可得到一串字符YWVnaXN7T3V0czFkZV90aDNfV2ExbH0&#x3D;.由后面等号判断这是base64编码，解码后flag为aegis{Outs1de_th3_Wa1l}<br>###3.one more cat?<br>下载文件后发现未显示后缀名，使用010editor打开后前4个字符为FFD8，判断为jpg文件。修改文件后缀名为jpg文件后顺利打开。观察后发现文件长宽不正确（其实一开始我在文件的十六进制代码随便删着玩，发现刮掉一层后里面还以，误以为是图层重叠什么么的，后面搜了一下才知道是长宽不正确。）查看文件属性得到图片现长宽为1772*723。将两个数据进行十六进制转码得到06EC和02D3，在010editor中找到两个相邻的字串.将图片长度改为04E3后得到flag为Aegis {KGHpnFQM5MfaY9OAV}<br>##Crypto<br>###1.cc的代码1<br>观察后发现这是个同余方程，可以利用辗转相除法求得m的值。代码如下：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">  def extended_gcd(<span class="hljs-keyword">a</span>, b):<br><br>      <span class="hljs-keyword">if</span> b == <span class="hljs-number">0</span>:<br>          <span class="hljs-literal">return</span> <span class="hljs-keyword">a</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span><br>      <span class="hljs-keyword">else</span>:<br>          d, x, y = extended_gcd(b, <span class="hljs-keyword">a</span> % b)<br>          <span class="hljs-literal">return</span> d, y, x - (<span class="hljs-keyword">a</span><span class="hljs-comment"> // b) * y</span><br><br><br>  def solve_equation(<span class="hljs-keyword">a</span>, n, target):<br><br>      d, x, y = extended_gcd(<span class="hljs-keyword">a</span>, n)<br>      <span class="hljs-keyword">if</span> target % d != <span class="hljs-number">0</span>:<br>          <span class="hljs-literal">return</span> None  <br>      x *= target<span class="hljs-comment"> // d</span><br>      x %= n<br>      <span class="hljs-literal">return</span> x<br><br>  <span class="hljs-keyword">a</span> = <span class="hljs-number">8885832285076963111586680210364692820709966457672030441334543789536294316276764325084472715660723570686435234128145259842857647663221372060185195892044064</span><br><br>  n = <span class="hljs-number">9060969402803629915292267894492786224273473822492111764553997443209807171984324952573563576103685820371134042358293416805659268231981495201044778198872141</span><br><br>  target = <span class="hljs-number">114514</span><br><br>  solution = solve_equation(<span class="hljs-keyword">a</span>, n, target)<br>  <span class="hljs-keyword">if</span> solution is None:<br>      print(<span class="hljs-string">&quot;No solution exists&quot;</span>)<br>  <span class="hljs-keyword">else</span>:<br>      print(<span class="hljs-string">&quot;The value of m is:&quot;</span>, solution)<br>  ```  <br><br><span class="hljs-comment">###R什么A</span><br>根据题意这是个rsa加密算法，给出了两个用户他们的加密过程。由代码可知两个用户加密时使用了相同的p值。运用同模攻击，即计算n1,n2的最大公倍数可得出p的值，进而计算出q1，q2的值。运用拓展按欧几里得分别计算两用户的私钥，最后解密即可。代码如下<br></code></pre></td></tr></table></figure>
+<p>  from Crypto.Util.number import  long_to_byte<br>  e &#x3D; 0x10001<br>  n1 &#x3D; 133168339217550577216589062233437816811151402796223033430088220416336906835669848994634291919170643581348650874065227137073336317617907512053823559235568701518666617297922184334465523573627967988519834913401715758584414421994725070840582274155375718602963660285184191200529505877324844371003066321517039773577<br>  n2 &#x3D; 97835755437595943550384485863622347994545081725956858027590612679202717629490020118342555446377038561457615114110440677424494746589149302908259809779710879296073535208650014526412949826891681368091148265929650418740652382792259655790387629193930725722742705798634504994801712862675586856497946091948411904811<br>  c1 &#x3D; 79153623056164822940275047499069044582637140703650747599791080674014224831942664718406064442887419006725379874121960823738302298816788211937934636730896427274557688579693244565838177533163514622774701652069473299516660928618067558031889377029541505803032827360621581370094282765008788493519911012912319042922<br>  c2 &#x3D; 25367476846913855168742220843431001349944206244063721403515824033435057384220536226996912522239640399134329525506438764500693894800833986724686905563128127624570309841422954176387059594177714614422407030832520985260687376035390006330027872652761934209690803437576392644066370183311540336426081888423843400476</p>
+<p> def gcd(a, b):<br>    while b !&#x3D; 0:<br>        a, b &#x3D; b, a % b<br>    return a</p>
+<p>p&#x3D;gcd(n1,n2)<br>q1&#x3D;n1&#x2F;&#x2F;p<br>q2&#x3D;n2&#x2F;&#x2F;p<br>phi1&#x3D;(p-1)(q1-1)<br>phi2&#x3D;(p-1)(q2-1)<br>def extended_gcd(a, b):<br>    if b &#x3D;&#x3D; 0:<br>        return a, 1, 0<br>    else:<br>        d, x, y &#x3D; extended_gcd(b, a % b)<br>        return d, y, x - (a &#x2F;&#x2F; b) * y</p>
+<p>def mod_inverse(e, phi):<br>    d &#x3D; extended_gcd(e, phi)[1]<br>    d &#x3D; (d % phi + phi) % phi<br>    return d<br>d1&#x3D;mod_inverse(e,phi1)<br>d2&#x3D;mod_inverse(e,phi2)<br>m1&#x3D;pow(c1,d1,n1)<br>m2&#x3D;pow(c2,d2,n2)<br>t1&#x3D;long_to_byte(m1)<br>t2&#x3D;long_to_byte(m2)<br>s1&#x3D;t1.decode()<br>s2&#x3D;t2.decode()<br>ans&#x3D;t1+t2</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs clean">###<span class="hljs-number">3.</span>你这对数保熟吗<br>典型的离散对数问题。经过分解后发现原题中p<span class="hljs-number">-1</span>分解后发现由<span class="hljs-number">2</span>，<span class="hljs-number">3</span>，<span class="hljs-number">13</span>的大指数幂相乘得到，考虑使用Pohlig_hellman算法解决。（因为没有研究过群和阶的相关知识所以只好去github找到大佬写的代码））））。以下是解决代码<br></code></pre></td></tr></table></figure>
+<p>g &#x3D; 23<br>p &#x3D; 335215034881592512312398694238485179340610060759881511231472142277527176340784432381542726029524727833039074808456839870641607412102746854257629226877248337002993023452385472058106944014653401647033456174126976474875859099023703472904735779212010820524934972736276889281087909166017427905825553503050645575935980580803899122224368875197728677516907272452047278523846912786938173456942568602502013001099009776563388736434564541041529106817380347284002060811645842312648498340150736573246893588079033524476111268686138924892091575797329915240849862827621736832883215569687974368499436632617425922744658912248644475097139485785819369867604176912652851123185884810544172785948158330991257118563772736929105360124222843930130347670027236797458715653361366862282591170630650344062377644570729478796795124594909835004189813214758026703689710017334501371279295621820181402191463184275851324378938021156631501330660825566054528793444353</p>
+<p>h &#x3D; 151333891124751042530373058733310229020861747364950371939516479475162992037903347417936196828583151386618599368454072226165444925872870650414551703768232002316254158915083698330990330278130046398088047562784667521913753402515723191873156994035716848303368773750333765220820386506782880732679521051748318241805303190991258449127197189331948934074457050488191283099074865889637545218937526229513889791410777502477696875891082038990413388216830069268272255999388181376286940238370372643791232995202072450723942304527080946432917501351864739416448924582017320060586643735734292637847642023547476853638234949833659591784958385540561237937020927469550605965078493721147809719894402771906021288426916263343205077017375543543255846809902539042307898378549318665401306894386065737984451884222692305472589833388412932383483599881154543926136994191023685493449167048197363831597805973018213602671103739435631408238626910595609595980072843</p>
+<p>print(“\n\nCalculating prime number decomposition of p-1…”)<br>p_1 &#x3D; p - 1<br>d, factors &#x3D; 2, []<br>while d*d &lt;&#x3D; p_1:<br>    while (p_1 % d) &#x3D;&#x3D; 0:<br>        factors.append(d)<br>        p_1 &#x2F;&#x2F;&#x3D; d<br>    d +&#x3D; 1<br>if p_1 &gt; 1:<br>    factors.append(p)</p>
+<p>factors &#x3D; [[x, factors.count(x)] for x in set(factors)]<br>print(“Prime number decomposition of p-1 : \n{}\n\n”.format(factors)) </p>
+<p>x &#x3D; []<br>for factor in factors:<br>    print(“┌──────────────\n│Searching xi for {}\n└──────────────”.format(factor[0]))<br>    x_i_list &#x3D; []<br>    for i in range(factor[1]):<br>        print(“——\nSearching for power {}\n——“.format(i))<br>        if i !&#x3D; 0:<br>            beta &#x3D; (beta * pow(g, -(x_i_list[-1] * (factor[0] ** (i - 1))), p)) % p<br>        else:<br>            beta &#x3D; h<br>        e1 &#x3D; pow(beta, (p-1) &#x2F;&#x2F; (factor[0] ** (i + 1)), p)<br>        e2 &#x3D; pow(g, (p-1) &#x2F;&#x2F; factor[0], p)<br>        print(“e1 &#x3D; {}”.format(e1))<br>        print(“e2 &#x3D; {}”.format(e2))<br>        for k in (range(factor[0])):<br>            if pow(e2, k, p) &#x3D;&#x3D; e1:<br>                print(“{}^{} &#x3D; {} [p]”.format(e1, k, e2))<br>                x_i_list.append(k)<br>                print(“x &#x3D; {}”.format(k))<br>                break<br>    x.append(x_i_list)</p>
+<p>print(“\n\nCreation of congruence system…”)<br>system &#x3D; []<br>for i, factor in enumerate(factors):<br>    y &#x3D; 0<br>    for j, x_j in enumerate(x[i]):<br>        y +&#x3D; x_j * (factor[0] ** j)<br>    y &#x3D; y % (factor[0] ** factor[1])<br>    print(“x &#x3D; {} [p]”.format(y))<br>    system.append(y)</p>
+<p>result &#x3D; 0<br>for i in range(len(factors)):<br>    p_i, e_i &#x3D; factors[i]<br>    p_e &#x3D; p_i ** e_i<br>    product &#x3D; system[i]<br>    for j in range(len(factors)):<br>        if j &#x3D;&#x3D; i:<br>            continue<br>        p_e_j &#x3D; factors[j][0] ** factors[j][1]<br>        product *&#x3D; p_e_j * pow(p_e_j, -1, p_e)<br>        product %&#x3D; (p - 1)<br>    result +&#x3D; product<br>    result %&#x3D; (p - 1)</p>
+<p>print(“\n\n┌──────────────\n│ x &#x3D; {}\n└──────────────”.format(result))</p>
+<p>print(“””   _____<br>  &#x2F; <em><strong>&#x2F;</strong></em>_ __________ _____  __  __________<br>  __ / __ <code>/ ___/ __ </code>&#x2F; __ / &#x2F; &#x2F; &#x2F; <strong><em>&#x2F; _ \<br> <em>_<em>&#x2F; &#x2F; &#x2F;</em>&#x2F; &#x2F; &#x2F;  &#x2F; &#x2F;_&#x2F; &#x2F; &#x2F;</em>&#x2F; &#x2F; &#x2F;</em>&#x2F; &#x2F; &#x2F;</strong>&#x2F;  <strong>&#x2F;<br>&#x2F;<em><em>_<em>&#x2F;_</em>,_&#x2F;</em>&#x2F;   _</em>,<em>&#x2F; .</em></strong>&#x2F;_<em>,</em>&#x2F;_<strong>&#x2F;_</strong>&#x2F;<br>                     &#x2F;_&#x2F;                       (dit le king)<br>                     “””)</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs vim">###<span class="hljs-number">4</span>.<span class="hljs-keyword">cc</span>的代码二<br>根据题意即求出以<span class="hljs-keyword">center</span>值为中心，radius值为半径的范围内一共有多少素数。因为<span class="hljs-keyword">center</span>值过大，根据文件中的暴力法破解显然跑不出来，考虑优化算法。（一开始我想的是用欧拉筛来找但是<span class="hljs-keyword">center</span>值太大导致<span class="hljs-keyword">python</span>列表容纳不下这么多数据，后面转念一想我铸币了）直接使用Miller_Rabin素性测试判断一个数是否为素数<br></code></pre></td></tr></table></figure>
+<p>import random<br>from Crypto.Util.number import  long_to_byte</p>
+<p>def is_prime(n, k&#x3D;5):<br>    if n &lt;&#x3D; 1:<br>        return False<br>    if n &lt;&#x3D; 3:<br>        return True<br>    if n % 2 &#x3D;&#x3D; 0:<br>        return False</p>
+<pre><code class="hljs">r = 0
+d = n - 1
+while d % 2 == 0:
+    r += 1
+    d //= 2
+
+for _ in range(k):
+    a = random.randint(2, n - 2)
+    x = pow(a, d, n)
+
+    if x == 1 or x == n - 1:
+        continue
+
+    for _ in range(r - 1):
+        x = pow(x, 2, n)
+        if x == n - 1:
+            break
+    else:
+        return False
+
+return True
+</code></pre>
+<p>center &#x3D; 865043906 &lt;&lt; 64<br>radius &#x3D; 1145141<br>count &#x3D; 0</p>
+<p>for i in range(center - radius, center + radius):<br>    if is_prime(i):<br>        count +&#x3D; 1<br>t&#x3D;long_to_byte(count)<br>ans&#x3D;t.decode()<br>print(ans)</p>
+<pre><code class="hljs">
+</code></pre>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>工作室招新题write up</div>
+      <div>http://example.com/2023/11/03/工作室招新题write-up/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>November 3, 2023</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/11/03/test/" title="test">
+                        <span class="hidden-mobile">test</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
