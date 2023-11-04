@@ -16,21 +16,21 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="crcr personal blog">
+    <meta name="description" content="简单总结一下sql注入，持续更新中小tips1.注入时要注意字符型还是整数型2.万能注入公式：1’ or ‘1’&#x3D;’13.如果过滤甚至删除某些字段，可以考虑双写注入，如将union写为ununionion4.union select查找列数时要把1,2,3都列出来5.联合注入语句6.&#x2F;check.php?username&#x3D;admin&amp;password&amp;#x3D">
 <meta property="og:type" content="article">
-<meta property="og:title" content="test">
-<meta property="og:url" content="http://example.com/2023/11/03/test/index.html">
+<meta property="og:title" content="sql注入">
+<meta property="og:url" content="http://example.com/2023/11/04/sql%E6%B3%A8%E5%85%A5/index.html">
 <meta property="og:site_name" content="crcr">
-<meta property="og:description" content="crcr personal blog">
+<meta property="og:description" content="简单总结一下sql注入，持续更新中小tips1.注入时要注意字符型还是整数型2.万能注入公式：1’ or ‘1’&#x3D;’13.如果过滤甚至删除某些字段，可以考虑双写注入，如将union写为ununionion4.union select查找列数时要把1,2,3都列出来5.联合注入语句6.&#x2F;check.php?username&#x3D;admin&amp;password&amp;#x3D">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-11-03T12:00:25.000Z">
-<meta property="article:modified_time" content="2023-11-03T12:00:25.159Z">
+<meta property="article:published_time" content="2023-11-04T12:52:20.000Z">
+<meta property="article:modified_time" content="2023-11-04T13:24:53.742Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>test - crcr</title>
+  <title>sql注入 - crcr</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="test"></span>
+            <span id="subtitle" data-typed-text="sql注入"></span>
           
         </div>
 
@@ -207,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-11-03 20:00" pubdate>
-          November 3, 2023 pm
+        <time datetime="2023-11-04 20:52" pubdate>
+          November 4, 2023 pm
         </time>
       </span>
     
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 words
+          2.5k words
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          1 mins
+          21 mins
         
       </span>
     
@@ -267,12 +267,32 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">test</h1>
+            <h1 id="seo-header">sql注入</h1>
             
             
               <div class="markdown-body">
                 
-                
+                <h1 id="简单总结一下sql注入，持续更新中"><a href="#简单总结一下sql注入，持续更新中" class="headerlink" title="简单总结一下sql注入，持续更新中"></a>简单总结一下sql注入，持续更新中</h1><h2 id="小tips"><a href="#小tips" class="headerlink" title="小tips"></a>小tips</h2><p>1.注入时要注意字符型还是整数型<br>2.万能注入公式：1’ or ‘1’&#x3D;’1<br>3.如果过滤甚至删除某些字段，可以考虑双写注入，如将union写为ununionion<br>4.union select查找列数时要把1,2,3都列出来<br>5.联合注入语句<br>6.&#x2F;check.php?username&#x3D;admin&amp;password&#x3D;1 %27 ununionion seselectlect 1,2,group_concat(flag)frfromom(ctf.Flag) %23</p>
+<h2 id="不懂的某些语句详解"><a href="#不懂的某些语句详解" class="headerlink" title="不懂的某些语句详解"></a>不懂的某些语句详解</h2><p>1.在SQL数据库中，GROUP_CONCAT函数用于将多行数据按照指定的顺序连接成一个字符串，并以逗号或其他分隔符分隔。它通常与GROUP BY子句一起使用，用于在分组查询中将多个行的值合并为一个字符串。</p>
+<p>GROUP_CONCAT函数的基本语法如下：</p>
+<p>GROUP_CONCAT(expression [ORDER BY clause] [SEPARATOR separator])<br>其中，expression是要合并的列或表达式，可以是任何数据类型。ORDER BY子句是可选的，用于指定合并后的结果的排序顺序。SEPARATOR参数也是可选的，用于指定合并后的字符串中的分隔符，默认为逗号。</p>
+<p>以下是一个示例，说明GROUP_CONCAT函数的用法： 假设有一个名为students的表，包含学生的姓名和所属班级信息：</p>
+<p>+—-+——-+———+<br>| ID | Name  | Class   |<br>+—-+——-+———+<br>| 1  | Alice | Class A |<br>| 2  | Bob   | Class B |<br>| 3  | Carol | Class A |<br>| 4  | David | Class B |<br>+—-+——-+———+<br>使用GROUP_CONCAT函数可以将每个班级的学生姓名合并成一个字符串，并以逗号分隔：</p>
+<p>SELECT Class, GROUP_CONCAT(Name) AS Students<br>FROM students<br>GROUP BY Class;<br>执行以上查询后，将得到以下结果：</p>
+<p>+———+——————+<br>| Class   | Students         |<br>+———+——————+<br>| Class A | Alice,Carol      |<br>| Class B | Bob,David        |<br>+———+——————+<br>通过使用GROUP_CONCAT函数，我们可以将多个行的值合并为一个字符串，方便进行分组数据的展示和处理。在实际应用中，GROUP_CONCAT函数常用于生成逗号分隔的列表、拼接字符串等场景。</p>
+<p>2.在SQL数据库中，schema_name是用于标识数据库中的模式（schema）的名称。模式是数据库中用于组织和管理对象（例如表、视图、函数等）的逻辑容器。</p>
+<p>每个数据库可以包含多个模式，而每个模式可以包含多个对象。通过使用模式，可以将数据库中的对象进行逻辑分组和组织，以便更好地管理和维护数据库。</p>
+<p>在不同的数据库管理系统中，模式的概念和用法可能会有所不同。在某些数据库中，模式与用户（user）是紧密相关的，每个用户可以有自己的模式，用于隔离和管理其拥有的对象。而在其他数据库中，模式可以被看作是一个独立的命名空间，用于将对象进行分类和组织。</p>
+<p>schema_name通常用于以下场景：</p>
+<p>创建对象时，可以指定所属的模式，以便将对象放置在正确的模式中。<br>引用对象时，可以使用schema_name作为前缀，以明确指定对象所属的模式，避免歧义和冲突。<br>授予和管理权限时，可以将权限授予特定的模式，以控制用户对模式中对象的访问和操作权限。<br>在使用schema_name时，需要注意以下几点：</p>
+<p>不同的数据库管理系统可能有不同的语法和规范来引用模式名称，例如使用双引号、方括号等。<br>某些数据库管理系统可能有默认的模式，用于存储系统级别的对象，例如系统表、视图等。<br>在创建模式和对象时，应该遵循一致的命名规范，以便更好地组织和管理数据库中的对象。<br>总之，schema_name是用于标识数据库中模式的名称，它在数据库中起到组织和管理对象的作用，有助于提高数据库的可维护性和可扩展性。<br>3.在SQL中，GROUP_CONCAT函数可以与FROM子句一起使用，用于在查询中将多个行的值合并为一个字符串，并将其作为单个值返回。</p>
+<p>当GROUP_CONCAT函数与FROM子句一起使用时，通常是在子查询中使用，以便将多个行的值合并为一个字符串，并将其作为单个值返回到主查询中。这样可以方便地在主查询中使用合并后的字符串进行进一步的查询和分析。</p>
+<p>以下是一个示例，说明如何在子查询中使用GROUP_CONCAT函数和FROM子句： 假设有一个名为orders的表，包含订单的信息，其中每个订单可以包含多个产品：</p>
+<p>+—-+———+——–+<br>| ID | OrderID | Product|<br>+—-+———+——–+<br>| 1  | 1001    | A      |<br>| 2  | 1001    | B      |<br>| 3  | 1002    | C      |<br>| 4  | 1002    | D      |<br>| 5  | 1002    | E      |<br>+—-+———+——–+<br>现在我们想要查询每个订单的所有产品，并将其合并为一个逗号分隔的字符串。可以使用以下查询：</p>
+<p>SELECT OrderID, (SELECT GROUP_CONCAT(Product) FROM orders o2 WHERE o2.OrderID &#x3D; o1.OrderID) AS Products<br>FROM orders o1<br>GROUP BY OrderID;<br>执行以上查询后，将得到以下结果：</p>
+<p>+———+———-+<br>| OrderID | Products |<br>+———+———-+<br>| 1001    | A,B      |<br>| 1002    | C,D,E    |<br>+———+———-+<br>在以上查询中，使用了子查询和FROM子句来获取每个订单的所有产品，并使用GROUP_CONCAT函数将其合并为一个字符串。然后将合并后的字符串作为单个值返回到主查询中，以便在主查询中使用。</p>
+<p>总之，GROUP_CONCAT函数可以与FROM子句一起使用，用于将多个行的值合并为一个字符串，并将其作为单个值返回到主查询中。这样可以方便地在主查询中使用合并后的字符串进行进一步的查询和分析。</p>
+
                 
               </div>
             
@@ -289,8 +309,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>test</div>
-      <div>http://example.com/2023/11/03/test/</div>
+      <div>sql注入</div>
+      <div>http://example.com/2023/11/04/sql注入/</div>
     </div>
     <div class="license-meta">
       
@@ -302,7 +322,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>November 3, 2023</div>
+          <div>November 4, 2023</div>
         </div>
       
       
@@ -334,18 +354,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/11/03/%E5%B7%A5%E4%BD%9C%E5%AE%A4%E6%8B%9B%E6%96%B0%E9%A2%98write-up/" title="工作室招新题write up">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">工作室招新题write up</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/11/03/My-New-Post/" title="My New Post">
-                        <span class="hidden-mobile">My New Post</span>
+                      <a href="/2023/11/03/%E5%B7%A5%E4%BD%9C%E5%AE%A4%E6%8B%9B%E6%96%B0%E9%A2%98write-up/" title="工作室招新题write up">
+                        <span class="hidden-mobile">工作室招新题write up</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
